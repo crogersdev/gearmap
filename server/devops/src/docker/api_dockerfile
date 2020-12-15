@@ -1,0 +1,19 @@
+FROM continuumio/miniconda3:4.8.2
+
+WORKDIR /gearmap
+
+COPY devops ./devops
+COPY common ./common
+COPY src ./src
+
+RUN mkdir ./logs
+RUN conda env create -f /gearmap/devops/conda_env.yml
+RUN conda clean -afy
+
+# Make RUN commands use the new environment:
+SHELL ["conda", "run", "-n", "gearmap_api", "/bin/bash", "-c"]
+
+ENV PYTHONPATH "/gearmap:/gearmap/devops/src/py:/gearmap/devops/src/db_setup:/gearmap/src/py:/gearmap/common/src/py:/gearmap/src/tests:${PYTHONPATH}"
+EXPOSE 5001
+
+ENTRYPOINT ["conda", "run", "-n", "gearmap_api", "python3", "src/py/api/app.py"]

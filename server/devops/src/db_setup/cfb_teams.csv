@@ -1,0 +1,122 @@
+school,canonical_name,abbreviation,nicknames,city,state,conference,latitude,longitude,population,stadium_capacity
+Army,United States Military Academy West Point,army,Black Knights,West Point,New York,Independent,41.37997,-73.962135,6763,None
+Air Force,Air Force Academy,afa,Falcons,Colorado Springs,Colorado,Mountain West,39.00846,-104.89046,465101,None
+Auburn,Auburn University,au,Tigers,Auburn,Alabama,SEC,32.5933574,-85.4951663,42746,None
+Ball State,Ball State University,bsu,Cardinals,Muncie,Indiana,MAC,40.2061028,-85.406986,115603,None
+Baylor,Baylor University,bu,Bears,Waco,Texas,Big 12,31.549841,-97.1143146,265207,None
+Boise State,Boise State University,bsu,Broncos,Boise,Idaho,Mountain West,43.6033127,-116.201649,691423,None
+Boston College,Boston College,bc,Eagles,Chestnut Hill,Massachusetts,ACC,42.3355488,-71.1684945,4794447,None
+Bowling Green,Bowling Green State University,bgsu,Falcons,Bowling Green,Ohio,MAC,41.3797788,-83.6300826,171122,None
+Buffalo,University of Buffalo,ub,Bulls,Buffalo,New York,MAC,43.0008093,-78.7889697,1132804,None
+Brigham Young,Brigham Young University,byu,Cougars,Provo,Utah,Independent,40.2518435,-111.6493156,603309,None
+Berkeley,University of California Berkeley,cal,Golden Bears,Berkeley,California,Pac-12,37.8022945,-122.271448,121240,None
+Fresno State,California State University Fresno,fsu,Bulldogs,Fresno,California,Mountain West,36.8133636,-119.7460937,979915,None
+UCLA,University of California Los Angeles,ucla,Bruins,Los Angeles,California,Pac-12,34.068921,-118.4451811,13310447,None
+Central Florida,University of Central Florida,ucf,Knights,Orlando,Florida,American,28.6024274,-81.2000599,2441257,None
+Central Michigan,Central Michigan University,cmu,Chippewas,Mount Pleasant,Michigan,MAC,43.5819086,-84.7756364,71282,None
+Charlotte,University of North Carolina at Charlotte,uncc,49ers,Charlotte,North Carolina,C-USA,35.3070929,-80.735164,2474314,None
+Cincinnati,University of Cincinatti,uc,Bearcats,Cincinnati,Ohio,American,39.1329219,-84.5149504,2165139,None
+Clemson,Clemson University,cu,Tigers,Clemson,South Carolina,ACC,34.6760942,-82.8364148,16058,None
+Coastal Carolina,Coastal Carolina University,ccu,Chanticleers,Conway,South Carolina,Sun Belt,33.7949658,-79.01173,734622,None
+Colorado,University of Colorado,cu,Buffaloes,Boulder,Colorado,Pac-12,40.007581,-105.2659417,322226,None
+Connecticut,University of Connecticut,uconn,Huskies,Storrs,Connecticut,American,41.8077414,-72.2539805,24558,None
+Duke,University ,du,Blue Devils,Durham,North Carolina,ACC,36.0014258,-78.9382286,559535,None
+Eastern Michigan,Eastern Michigan University,emich,Eagles,Ypsilanti,Michigan,MAC,42.2506803,-83.624089,21018,None
+East Carolina,East Carolina University,ecu,Pirates,Greenville,North Carolina,American,35.6055108,-77.3645653,51778,None
+Florida International,Florida International University,fiu,Panthers,Miami,Florida,C-USA,25.756576,-80.373949,31691,None
+Florida,University of Florida,uf,Gators,Gainesville,Florida,SEC,29.6436325,-82.3549302,196637,None
+Florida Atlantic,Florida Atlantic University,fau,Owls,Boca Raton,Florida,C-USA,26.3739379,-80.1015277,96114,None
+Florida State,Florida State University,fsu,Seminoles,Tallahassee,Florida,ACC,30.4418778,-84.2984889,379627,None
+Georgia,University of Georgia,uga,Bulldogs,Athens,Georgia,SEC,33.9480053,-83.3773221,52850,None
+Georgia Southern,Georgia Southern University,gsu,Eagles,Statesboro,Georgia,Sun Belt,32.4205489,-81.7865347,74722,None
+Georgia State,Georgia State University,gsu,Panthers,Atlanta,Georgia,Sun Belt,33.753068,-84.3852819,5789700,None
+Georgia Tech,Georgia Tech University,gt,Yellow Jackets,Atlanta,Georgia,ACC,33.7756178,-84.396285,5789700,None
+Hawai'i,University of Hawaii,uh,Rainbow Warriors,Honolulu,Hawai'i,Mountain West,21.2991857,-157.8171978,992605,None
+Houston,University of Houston,uh,Cougars,Houston,Texas,American,29.7199489,-95.3422334,6772470,None
+Idaho,University of Idaho,ui,Vandals,Moscow,Idaho,Sun Belt,46.7288124,-117.0126084,39196,None
+Illinois,University of Illinois at Urbana-Champaign,ui,Fighting Illini,Urbana–Champaign,Illinois,Big Ten,40.1019523,-88.2271615,238554,None
+Indiana,University of Indiana,ui,Hoosiers,Bloomington,Indiana,Big Ten,39.1761275,-86.5130583,166336,None
+Iowa,University of Iowa,ui,Hawkeyes,Iowa City,Iowa,Big Ten,41.6626963,-91.5548998,168828,None
+Iowa State,Iowa State University,isu,Cyclones,Ames,Iowa,Big 12,42.0266187,-93.6464654,97090,None
+Kansas,University of Kansas,uk,Jayhawks,Lawrence,Kansas,Big 12,38.9543439,-95.2557961,43081,None
+Kansas State,Kansas State University,nc,Wildcats,Manhattan,Kansas,Big 12,39.1974437,-96.5847249,97004,None
+Kent State,Kent State University,kent,Golden Flashes,Kent,Ohio,MAC,41.1490629,-81.3414649,349,None
+Kentucky,University of Kentucky,uk,Wildcats,Lexington,Kentucky,SEC,38.0306511,-84.5039697,112587,None
+Louisiana State,Louisiana State University,lsu,Tigers,Baton Rouge,Louisiana,SEC,30.4132579,-91.1800023,835175,None
+Louisiana Tech,Louisiana Tech University,latech,Bulldogs,Ruston,Louisiana,C-USA,32.5263753,-92.6481104,47745,None
+Louisiana-Lafayette,University of Louisiana at Lafayette,ull,Ragin' Cajuns,Lafayette,Louisiana,Sun Belt,30.2114404,-92.0204121,491528,None
+Louisiana-Monroe,University of Louisiana at Monroe,ulm,Warhawks,Monroe,Louisiana,Sun Belt,32.5309807,-92.068731,179470,None
+Louisville,University of Louisiana,lu,Cardinals,Louisville,Kentucky,ACC,38.2122761,-85.7585023,1283430,None
+Marshall,Marshall University,mu,Thundering Herd,Huntington,West Virginia,C-USA,38.4235332,-82.4263138,36400,None
+Maryland,University of Maryland,um,Terrapins,College Park,Maryland,Big Ten,38.9869183,-76.9425543,15035,None
+Massachusetts,University of Massachusetts,umass,Minutemen,Amherst,Massachusetts,Independent,42.3911569,-72.5267121,1693,None
+Memphis,University of Memphis,um,Tigers,Memphis,Tennessee,American,35.118741,-89.937141,1342842,None
+Miami (FL),University of Miami,um,Hurricanes,Coral Gables,Florida,ACC,25.7191685,-80.2771253,50815,None
+Miami (OH),Miami University,mu,RedHawks,Oxford,Ohio,MAC,39.5105334,-84.7308768,59031,None
+Michigan,University of Michigan,um,Wolverines,Ann Arbor,Michigan,Big Ten,42.2780436,-83.7382241,364709,None
+Michigan State,Michigan State University,msu,Spartans,East Lansing,Michigan,Big Ten,42.701848,-84.4821719,475099,None
+Middle Tennessee,Middle Tennessee State University,mtsu,Blue Raiders,Murfreesboro,Tennessee,C-USA,35.8486105,-86.3648813,1865298,None
+Minnesota,University of Minnesota Twin Cities,um,Golden Gophers,Minneapolis,Minnesota,Big Ten,44.97399,-93.2277285,3551036,None
+Ole Miss,University of Mississippi,omu,Rebels,Oxford,Mississippi,SEC,34.3647324,-89.538443,59031,None
+Mississippi State,Mississippi State University,msu,Bulldogs,Starkville,Mississippi,SEC,33.4551742,-88.7943766,49833,None
+Missouri,University of Missouri,um,Tigers,Columbia,Missouri,SEC,38.9403808,-92.3277375,176594,None
+Navy,United States Naval Academy,na,Midshipmen,Annapolis,Maryland,American,38.9820658,-76.4839405,342,None
+Nebraska,University of Nebraska Lincoln,un,Cornhuskers,Lincoln,Nebraska,Big Ten,40.8201966,-96.7004763,326921,None
+Nevada,University of Nevada Reno,unr,Wolf Pack,Reno,Nevada,Mountain West,39.5441917,-119.816397,457667,None
+Las Vegas,University of Nevada Las Vegas,unlv,Rebels,Las Vegas,Nevada,Mountain West,36.1085197,-115.1431709,2155664,None
+New Mexico,University of New Mexico,unm,Lobos,Albuquerque,New Mexico,Mountain West,35.0843187,-106.6197812,909906,None
+New Mexico State,New Mexico State University,nmsu,Aggies,Las Cruces,New Mexico,Sun Belt,32.2787745,-106.7479059,214207,None
+North Carolina,University of North Carolina,unc,Tar Heels,Chapel Hill,North Carolina,ACC,35.9049122,-79.0469134,559535,None
+North Carolina State,North Carolina State University,ncsu,Wolfpack,Raleigh,North Carolina,ACC,35.7846633,-78.6820946,1302946,None
+North Texas,University of North Texas,unt,Mean Green,Denton,Texas,C-USA,33.207488,-97.1525862,144,None
+Northern Illinois,Northern Illinois University,niu,Huskies,DeKalb,Illinois,MAC,41.934233,-88.774069,43194,None
+Northwestern,Northwestern University,nwu,Wildcats,Evanston,Illinois,Big Ten,45.031563,-93.168573,20773,None
+Notre Dame,University of Notre Dame,nd,Fighting Irish,South Bend,Indiana,Independent,41.7055716,-86.2353388,320740,None
+Ohio,Ohio University,uo,Bobcats,Athens,Ohio,MAC,39.324358,-82.1013889,52850,None
+Ohio State,Ohio State University,tosu,Buckeyes,Columbus,Ohio,Big Ten,40.0141905,-83.0309143,59602,None
+Oklahoma,University of Oklahoma,uo,Sooners,Norman,Oklahoma,Big 12,35.2058936,-97.4457137,43,None
+Oklahoma State,Oklahoma State University,osu,Cowboys,Stillwater,Oklahoma,Big 12,36.1270236,-97.0737222,81131,None
+Old Dominion,Old Dominion University,odu,Monarchs,Norfolk,Virginia,C-USA,36.8856104,-76.3067777,48118,None
+Oregon,University of Oregon,uo,Ducks,Eugene,Oregon,Pac-12,44.0448302,-123.0726055,369519,None
+Oregon State,Oregon State University,osu,Beavers,Corvallis,Oregon,Pac-12,44.5637806,-123.2794443,89385,None
+Penn State,Penn State University,psu,Nittany Lions,State College,Pennsylvania,Big Ten,40.7982133,-77.8599084,161464,None
+Pittsburgh,University of Pittsburgh,pitt,Panthers,Pittsburgh,Pennsylvania,ACC,40.4443533,-79.960835,2342299,None
+Purdue,Purdue University,pu,Boilermakers,West Lafayette,Indiana,Big Ten,40.4237054,-86.9211946,216679,None
+Rice,Rice University,rice,Owls,Houston,Texas,C-USA,29.7173941,-95.4018312,6772470,None
+Rutgers,Rutgers University,ru,Scarlet Knights,Piscataway,New Jersey,Big Ten,40.4981958,-74.4467958,10000000,None
+San Diego State,San Diego State University,sdsu,Aztecs,San Diego,California,Mountain West,32.7757217,-117.0718893,3317749,None
+San Jose State,San Jose State University,sjsu,Spartans,San Jose,California,Mountain West,37.3351874,-121.8810715,1978816,None
+South Alabama,University of South Alabama,usa,Jaguars,Mobile,Alabama,Sun Belt,30.6959406,-88.184236,414836,None
+South Carolina,University of South Carolina,usc,Gamecocks,Columbia,South Carolina,SEC,33.996112,-81.0274276,176594,None
+South Florida,University of South Florida,usf,Bulls,Tampa,Florida,American,28.0587031,-82.4138539,3032171,None
+Southern California,University of Southern California,usc,Trojans,Los Angeles,California,Pac-12,34.0223519,-118.285117,13310447,None
+Southern Methodist,Southern Methodist University,smu,Mustangs,University Park,Texas,American,32.8412178,-96.7845175,7052,None
+Southern Miss,University of Southern Mississippi,smu,Golden Eagles,Hattiesburg,Mississippi,C-USA,31.3303296,-89.3356963,149138,None
+Stanford,Stanford University,su,Cardinal,Stanford,California,Pac-12,37.4274745,-122.169719,3662,None
+Syracuse,Syracuse University,su,Orange,Syracuse,New York,ACC,43.0391534,-76.1351158,656510,None
+Texas Christian,Texas Christian University,tcu,Horned Frogs,Fort Worth,Texas,Big 12,32.70953,-97.362795,7233323,None
+Temple,Temple University,tu,Owls,Philadelphia,Pennsylvania,American,39.9811935,-75.1553512,6070500,None
+Tennessee,University of Tennessee Knoxville,ut,Volunteers,Knoxville,Tennessee,SEC,35.9544013,-83.9294564,868546,None
+Texas,University of Texas Austin,ut,Longhorns,Austin,Texas,Big 12,30.2849185,-97.7340567,2056405,None
+Texas A&M,Texas A&M University,tamu,Aggies,College Station,Texas,SEC,30.2849185,-97.7340567,254928,None
+Texas State,Texas State University,tsu,Bobcats,San Marcos,Texas,Sun Belt,29.888411,-97.938351,61980,None
+Texas Tech,Texas Tech University,ttu,Red Raiders,Lubbock,Texas,Big 12,33.5842591,-101.8782822,314840,None
+Texas El Paso,University of Texas El Paso,utep,Miners,El Paso,Texas,C-USA,31.7708544,-106.5046216,841971,None
+Texas San Antonio,University of Texas San Antonio,utsa,Roadrunners,San Antonio,Texas,C-USA,29.5830446,-98.6196556,2429609,None
+Toledo,University of Toledo,ut,Rockets,Toledo,Ohio,MAC,41.6580307,-83.6140701,605221,None
+Troy,Troy University,tu,Trojans,Troy,Alabama,Sun Belt,31.8018895,-85.9572283,33286,None
+Tulane,Tulane University,tu,Green Wave,New Orleans,Louisiana,American,29.9403477,-90.1207279,1268883,None
+Tulsa,Tulsa University,ut,Golden Hurricane,Tulsa,Oklahoma,American,36.1519879,-95.946,987201,None
+Utah,University of Utah,uu,Utes,Salt Lake City,Utah,Pac-12,40.7649368,-111.8421021,1186187,None
+Utah State,Utah State University,usu,Aggies,Logan,Utah,Mountain West,41.745161,-111.8097425,33700,None
+Vanderbilt,Vanderbilt University,vu,Commodores,Nashville,Tennessee,SEC,36.1447034,-86.8026551,1865298,None
+Virginia,University of Virginia,uva,Cavaliers,Charlottesville,Virginia,ACC,38.0335529,-78.5079772,231349,None
+Virginia Tech,Virginia Polytechnic and State University,vtu,Hokies,Blacksburg,Virginia,ACC,37.2283843,-80.4234167,182876,None
+Wake Forest,Wake Forest University,wfu,Demon Deacons,Winston-Salem,North Carolina,ACC,36.1352495,-80.2763425,662079,None
+Washington,University of Washington,uw,Huskies,Seattle,Washington,Pac-12,47.6553351,-122.3035199,3798902,None
+Washington State,Washington State University,wsu,Cougars,Pullman,Washington,Pac-12,46.7319225,-117.1542121,48851,None
+West Virginia,West Virginia University,wvu,Mountaineers,Morgantown,West Virginia,Big 12,39.6361396,-79.9559358,138380,None
+Western Kentucky,Western Kentucky University,wku,Hilltoppers,Bowling Green,Kentucky,C-USA,36.9853543,-86.456138,171122,None
+Western Michigan,Western Michigan University,wmu,Broncos,Kalamazoo,Michigan,MAC,42.2837336,-85.6102507,336877,None
+Wisconsin,University of Wisconsin,uw,Badgers,Madison,Wisconsin,Big Ten,43.076592,-89.4124875,45904,None
+Wyoming,University of Wyoming,uw,Cowboys,Laramie,Wyoming,Mountain West,41.3148754,-105.5665744,38256,None

@@ -1,0 +1,36 @@
+FROM python:3.7-slim AS builder-image
+
+RUN set -ex \
+    && DEPS=" \
+    libpq-dev \
+    libgeos-dev \
+    python3-dev \
+    keyutils \
+    gcc \
+    " \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends $DEPS \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/BIN:$PATH"
+COPY ./devops/conda.txt ./devops/
+RUN $VIRTUAL_ENV/bin/pip install --no-cache-dir -r devops/conda.txt
+
+RUN ldconfig
+
+FROM python:3.7-slim AS runtime-image
+
+COPY --from=builder-image /opt/venv /opt/venv
+COPY --from=builder-image /usr/lib/x86_64-linux-gnu/ /usr/lib/x86_64-linux-gnu
+COPY --from=builder-image /lib/x86_64-linux-gnu /lib/x86_64-linux-gnu
+
+WORKDIR /gearmap
+COPY . .
+
+ENV PYTHONPATH "/gearmap:/gearmap/devops/src/py:/gearmap/devops/src/db_setup:/gearmap/src/py:/gearmap/src/tests:${PYTHONPATH}"
+ENV PATH="/opt/venv/bin:$PATH"
+EXPOSE 5001
+
+CMD /bin/bash

@@ -1,0 +1,8 @@
+INFO:common.ResourceBroker:ResourceBroker created
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:__main__:Running web app
+INFO:aiohttp.access:127.0.0.1 [04/Jan/2020:06:19:06 +0000] "OPTIONS /observations HTTP/1.1" 200 351 "http://localhost:3000/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+DEBUG:__main__:/observations hit with {'bbox': 'POLYGON(( -115.96184814451986 48.614261024623005, -119.00506103514246 48.614261024623005, -119.00506103514246 46.8070695258389, -115.96184814451986 46.8070695258389, -115.96184814451986 48.614261024623005 ))'}
+INFO:api.GearmapImpl:Created new instance of api.GearmapImpl
+INFO:api.GearmapImpl:Get School Observations in polygon
+INFO:aiohttp.access:127.0.0.1 [04/Jan/2020:06:19:06 +0000] "POST /observations HTTP/1.1" 200 26963 "http://localhost:3000/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"

@@ -1,0 +1,378 @@
+openapi: '3.0.0'
+info:
+  title: GearMap
+  description: Defines the interface to the GearMap App.
+  version: 0.0.1
+
+
+paths:
+  /ping:
+    get:
+      summary: 'Are you alive?'
+      responses:
+        '200':
+          description: 'An array of school observations'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewObservationResponse'
+
+  /observations/{bbox}:
+    get:
+      summary: 'Return an ObservationResponse filtered by a bounding box'
+      parameters:
+      - name: bbox
+        in: path
+        description: 'A polygon, or bounding box, to geo-spatially filter results'
+        required: true
+        schema:
+          type: string
+
+      responses:
+        '200':
+          description: 'An array of ObservationResponse; a wrapper for a GeoJSON FeatureCollection'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationResponse'
+
+        '400':
+          description: 'Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /observations_by_schools:
+    post:
+      summary: 'Return an ObservationResponse array filtered by School'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bbox:
+                  type: string
+                school_names:
+                  type: array
+                  items:
+                    type: string
+
+      responses:
+        '200':
+          description: 'An ObservationResponse; a wrapper for a GeoJSON FeatureCollection'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationResponse'
+        '400':
+          description: 'Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+  /observations_by_conference_ids:
+    post:
+      summary: 'Return an ObservationResponse filtered by conference affiliation'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bbox:
+                  type: string
+                conference_ids:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        '200':
+          description: 'An ObservationResponse; a wrapper for a GeoJSON FeatureCollection'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationResponse'
+        '400':
+          description: 'Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /new_observation:
+    post:
+      summary: 'Add a new observation of a team'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Observation'
+
+      responses:
+        '200':
+          description: 'Status indicating success/failure of school observation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewObservationResponse'
+
+        '400':
+          description: 'Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+          
+    School:
+      type: object
+      properties:
+        name:
+          type: string
+        location:
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/Point'
+            
+    Observation:
+      type: object
+      properties:
+        school_id:
+          type: integer
+          format: int32
+        gear_type:
+          type: string
+        wearer_gender:
+          type: string
+        wearer_age:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 120
+        wearer_ethnicity:
+          type: string
+        observed_lat:
+          type: number
+          format: float
+          minimum: -90
+          maximum: 90
+        observed_long:
+          type: number
+          format: float
+          minimum: -180
+          maximum: 180
+        observation_geom:
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/Point3D'
+    
+    ObservationResponse:
+      type: object
+      properties:
+        num_observations:
+          type: integer
+          format: int32
+        geo_json:
+          type: object
+          oneOf: 
+            - $ref: '#/components/schemas/FeatureCollection'
+            
+    NewObservationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          
+    Geometry:
+      type: object
+      description: 'GeoJSON property'
+      required:
+        - type
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#geometry-objects
+      properties:
+        type:
+          type: string
+          description: 'Supported GeoJSON types'
+          enum:
+          - Point
+          - LineString
+          - Polygon
+          - MultiPoint
+          - MultiLineString
+          - MultiPolygon
+          
+    Point3D:
+      type: array
+      description: Point in 3D space
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id2
+      minItems: 2
+      maxItems: 3
+      items:
+        type: number
+  
+    Point:
+      type: object
+      description: GeoJSon geometry
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id2
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - properties:
+            coordinates:
+              $ref: '#/components/schemas/Point3D'
+  
+    LineString:
+      type: object
+      description: GeoJSon geometry
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id3
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - properties:
+            coordinates:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point3D'
+  
+    Polygon:
+      type: object
+      description: GeoJSon geometry
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id4
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - properties:
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point3D'
+  
+    MultiPoint:
+      type: object
+      description: GeoJSon geometry
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id5
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - properties:
+            coordinates:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point3D'
+  
+    MultiLineString:
+      type: object
+      description: GeoJSon geometry
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id6
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - properties:
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point3D'
+  
+  
+    MultiPolygon:
+      type: object
+      description: GeoJSon geometry
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id6
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - properties:
+            coordinates:
+              type: array
+              items:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Point3D'
+  
+    GeometryCollection:
+      type: object
+      description: GeoJSon geometry collection
+      required:
+       - type
+       - geometries
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#geometrycollection
+      properties:
+        type:
+          type: string
+          enum:
+          - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Geometry'
+  
+    Feature:
+      type: object
+      description: GeoJSon Feature
+      required:
+       - type
+       - id
+       - geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.2
+      properties:
+        type:
+          type: string
+          enum:
+            - Feature
+        id:
+          type: integer
+        geometry:
+          $ref: '#/components/schemas/GeometryCollection'
+        properties:
+          type: object
+  
+    FeatureCollection:
+      type: object
+      description: GeoJSon Feature collection
+      required:
+       - type
+       - features
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.3
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'

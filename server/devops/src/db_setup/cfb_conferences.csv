@@ -1,0 +1,12 @@
+name,nickname,abbrev,year_founded,num_members,hq_city,hq_state,geometry
+American Athletic Conference,The American,AAC,2013,12,Providence,Rhode Island,None
+Atlantic Coast Conference,None,ACC,1953,15,Greensboro,North Carolina,None
+Big Ten Conference,Big Ten,B1G,1896,14,Rosemont,Illinois,None
+Big 12 Conference,Big 12,B12,1996,10,Irving,Texas,None
+Conference USA,None,C-USA,1995,14,Irving,Texas,None
+Independents,Indy,None,1996,1,None,None,None
+Mid-American Conference,None,MAC,1946,12,Cleveland,Ohio,None
+Mountain West Conference,None,MWC,1999,11,Colorado Springs,Colorado,None
+Pac-12 Conference,None,PAC-12,1959,12,San Francisco,California,None
+Southeastern Conference,None,SEC,1932,14,Birmingham,Alabama,None
+Sun Belt Conference,Sun Belt,SBC,1976,12,New Orleans,Louisiana,None

@@ -1,0 +1,36 @@
+{
+  "name": "gearmap",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "awesome-debounce-promise": "^1.0.0",
+    "axios": "^0.18.0",
+    "browserify": "^16.2.3",
+    "browserify-fs": "^1.0.0",
+    "file-system": "^2.2.2",
+    "lodash": "^4.17.11",
+    "lodash.debounce": "^4.0.8",
+    "mapbox-gl": "^0.52.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "react-scripts": "^3.0.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "underscore": "^1.9.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
