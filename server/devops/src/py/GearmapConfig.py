@@ -88,16 +88,25 @@ class GearmapConfig(object):
                 },
             )
 
-        self.app_cfg = namedtuple('app_cfg',
-                                  'app_name api_container_name '
-                                  'db_container_name app_log_filename '
-                                  'app_logger_name')
-        self.DEV_APPCONFIG = self.app_cfg(app_name='gearmap',
-                                          api_container_name='gearmap_postgis',
-                                          db_container_name='gearmap_api',
-                                          app_log_filename='gearmap_app.log',
-                                          app_logger_name='gearmap_app')
+        self.app_cfg = namedtuple(
+            'app_cfg',
+            'app_name api_container_name '
+            'db_container_name app_log_filename '
+            'app_logger_name app_logger_path'
+        )
 
-        self.webapp_cfg = namedtuple('webapp_cfg',
-                                     'port')
+        self.DEV_APPCONFIG = self.app_cfg(
+            app_name='gearmap',
+            api_container_name='gearmap_postgis',
+            db_container_name='gearmap_api',
+            app_log_filename='gearmap_app.log',
+            app_logger_name='gearmap_app',
+            app_logger_path='/gearmap/logs'
+        )
+
+        self.webapp_cfg = namedtuple(
+            'webapp_cfg',
+            'port'
+        )
+
         self.DEV_WEBAPPCONFIG = self.webapp_cfg(port=5001)

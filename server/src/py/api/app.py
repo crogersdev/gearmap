@@ -24,5 +24,6 @@ WEBAPP_CFG = GearmapConfig()
 
 app = create_gearmap_app(loop=asyncio.get_event_loop())
 app['GearmapImpl'] = GearmapImpl()
+print('finny')
 logger.debug("Running web app")
 web.run_app(app, port=WEBAPP_CFG.DEV_WEBAPPCONFIG.port)
