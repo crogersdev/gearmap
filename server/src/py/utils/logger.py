@@ -17,30 +17,17 @@ cfg = APP_CFG.DEV_APPCONFIG
 # TODO: fix...  this will fail if the folder /gearmap/logs doesn't exist, and it doesn't by default.  the code doesn't create it.
 log_file = cfg.app_logger_path + '/' + cfg.app_log_filename
 
-root = logging.getLogger(
-    name=log_file
-)
-root.setLevel(logging.DEBUG)
+logFormatter = logging.Formatter("%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s")
+rootLogger = logging.getLogger()
 
-output_file_handler = logging.FileHandler(log_file)
-stdout_handler = logging.StreamHandler(sys.stdout)
-stderr_handler = logging.StreamHandler(sys.stderr)
-output_file_handler.setLevel(logging.DEBUG)
-stdout_handler.setLevel(logging.DEBUG)
-stderr_handler.setLevel(logging.DEBUG)
+fileHandler = logging.FileHandler("{0}/{1}.log".format(cfg.app_logger_path, cfg.app_log_filename))
+fileHandler.setFormatter(logFormatter)
+rootLogger.addHandler(fileHandler)
 
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-output_file_handler.setFormatter(formatter)
-stdout_handler.setFormatter(formatter)
-stderr_handler.setFormatter(formatter)
+consoleHandler = logging.StreamHandler()
+consoleHandler.setFormatter(logFormatter)
+rootLogger.addHandler(consoleHandler)
 
-# HACK: i don't know why, but a new handler is added every time
-#       this module is invoked... so i'm going to patch that with this if
-#       statement
-if not root.handlers:
-    root.addHandler(output_file_handler)
-    root.addHandler(stdout_handler)
-    root.addHandler(stderr_handler)
+rootLogger.setLevel(logging.DEBUG)
 
-# the object to be imported
-logger = root
+logger = rootLogger

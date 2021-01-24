@@ -44,7 +44,6 @@ class GearmapDbSession(object):
     def __init__(self, env="dev"):
         """Create a db engine and set all public vars."""
 
-        logger.name = __name__
         self._logger = logger
         self._db_env = env
 

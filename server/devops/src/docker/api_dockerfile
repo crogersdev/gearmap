@@ -1,9 +1,21 @@
-FROM gearmap_api_conda_base:1.0
+FROM continuumio/miniconda3:4.9.2
+
+WORKDIR /gearmap
+
+ADD devops ./devops
+
+RUN mkdir ./logs
+RUN conda env create -f ./devops/conda_env.yml
+RUN conda clean -afy
+
+ADD common ./common
+ADD src ./src
 
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "gearmap_api", "/bin/bash", "-c"]
 
 ENV PYTHONPATH "/gearmap:/gearmap/devops/src/py:/gearmap/devops/src/db_setup:/gearmap/src/py:/gearmap/common/src/py:/gearmap/src/tests:${PYTHONPATH}"
+
 EXPOSE 5001
 
-ENTRYPOINT ["conda", "run", "-n", "gearmap_api", "python3", "./src/py/api/app.py"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "gearmap_api", "python3", "./src/py/api/app.py"]

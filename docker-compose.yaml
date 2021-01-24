@@ -6,20 +6,15 @@ services:
       dockerfile: ./devops/src/docker/Dockerfile
     ports:
     - "3000:3000"
-  server_base_image:
-    image: gearmap_api_conda_base
-    build:
-      context: ./server
-      dockerfile: ./devops/src/docker/conda_dockerfile
   server:
-    depends_on:
-    - server_base_image
     - db
     build:
       context: ./server
       dockerfile: ./devops/src/docker/api_dockerfile
     ports:
     - "80:5001"
+    volumes:
+    - ./server/
   db:
     image: mdillon/postgis:10-alpine
     volumes:

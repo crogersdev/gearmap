@@ -19,11 +19,10 @@ from GearmapConfig import GearmapConfig
 from utils.logger import logger
 
 
-logger.name = __name__
 WEBAPP_CFG = GearmapConfig()
 
 app = create_gearmap_app(loop=asyncio.get_event_loop())
 app['GearmapImpl'] = GearmapImpl()
-print('finny')
-logger.debug("Running web app")
+
+logger.info("Running web app")
 web.run_app(app, port=WEBAPP_CFG.DEV_WEBAPPCONFIG.port)

@@ -24,8 +24,6 @@ from GearmapResponse import GearmapResponse
 
 API_CFG = GearmapConfig()
 routes = web.RouteTableDef()
-logger.name = __name__
-
 
 def db_connection_error_msg():
     return GearmapResponse(

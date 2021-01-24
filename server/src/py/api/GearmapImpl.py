@@ -57,8 +57,6 @@ class GearmapImpl(object):
                        this enables testing
         """
         self._APP_CFG = GearmapConfig()
-
-        logger.name = __name__
         self._logger = logger
 
         assert isinstance(new_env, str), "Provided DB env for GearmapImpl " \
@@ -71,7 +69,7 @@ class GearmapImpl(object):
             self.db_session = db_session
             self.db_env = self.db_session.which_env()
 
-        self._logger.info("Created new instance of %s" % __name__)
+        self._logger.debug("Created new instance of %s" % __name__)
 
     @needs_db_connection
     async def get_all_observations_in_polygon(self,
@@ -242,7 +240,7 @@ class GearmapImpl(object):
     async def process_new_observation(self, obsv_json):
         """Put a new observation in the database."""
 
-        self._logger.info("Put a new School Observation")
+        self._logger.debug("Put a new School Observation")
 
         obsv_json['observation_geom'] = Point(
             float(obsv_json['observed_long']),
