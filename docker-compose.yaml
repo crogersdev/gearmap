@@ -14,6 +14,10 @@ services:
       dockerfile: ./devops/src/docker/api_dockerfile
     ports:
     - "80:5001"
+    env_file:
+      - .env
+    #environment:
+    #  - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
     - ./server/common:/gearmap/common
     - ./server/devops:/gearmap/devops
