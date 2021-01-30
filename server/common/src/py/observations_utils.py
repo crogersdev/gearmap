@@ -22,7 +22,6 @@ def to_geojson(observations):
 
     #TODO: replace with fancy list comprehension
     feature_list = []
-    import ipdb; ipdb.set_trace(context=11)
     for o in observations:
         (observation, school) = o
         feature_list.append({

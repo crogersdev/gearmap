@@ -6,6 +6,8 @@ services:
       dockerfile: ./devops/src/docker/Dockerfile
     ports:
     - "3000:3000"
+    volumes:
+    - ./client:/app
   server:
     depends_on:
     - db
