@@ -78,6 +78,7 @@ class GearmapDbSession(object):
         self._db_engine = create_engine(self._engine_str)
         self._session_creator = sessionmaker(bind=self._db_engine)
         self._session = self._session_creator()
+        self._session.commit()
 
     def which_env(self):
         return str(self._db_env).lower()

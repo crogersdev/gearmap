@@ -41,7 +41,7 @@ class GearmapConfig(object):
         )
 
         self.INTEGRATION_TEST_DBCONFIG = self.db_cfg(
-            dbhost=environ.get('GEARMAP_INTEGRATION_TEST_DBHOST', 'localhost'),
+            dbhost=environ.get('GEARMAP_INTEGRATION_TEST_DBHOST', 'db'),
             dbport=environ.get('GEARMAP_INTEGRATION_TEST_DBPORT', '5432'),
             dbname='gearmap_integration_test',
             dbpasswd=environ.get('PGPASSWORD', 'postgres'),
