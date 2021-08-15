@@ -5,7 +5,7 @@ services:
       context: ./client
       dockerfile: ./devops/src/docker/Dockerfile
     ports:
-    - "3000:3000"
+    - "3001:3000"
   server:
     depends_on:
     - db
@@ -13,7 +13,7 @@ services:
       context: ./server
       dockerfile: ./devops/src/docker/api_dockerfile
     ports:
-    - "80:5001"
+    - "5001:5000"
     volumes:
     - ./server/common:/gearmap/common
     - ./server/devops:/gearmap/devops
@@ -23,5 +23,5 @@ services:
     volumes:
     - /data/gearmap_db:/var/lib/postgresql/data
     ports:
-    - 5432:5432
+    - 5431:5432
        

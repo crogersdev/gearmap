@@ -25,6 +25,7 @@ from GearmapResponse import GearmapResponse
 API_CFG = GearmapConfig()
 routes = web.RouteTableDef()
 
+
 def db_connection_error_msg():
     return GearmapResponse(
         status="fail",
@@ -64,9 +65,7 @@ async def get_all_observations_in_polygon(request):
     GearmapImpl = request.app.get('GearmapImpl')
 
     try:
-        observations = await GearmapImpl.get_all_observations_in_polygon(
-            polygon=polygon
-        )
+        observations = await GearmapImpl.get_all_observations_in_polygon(polygon=polygon)
     except DbConnectionError:
         return web.Response(
             db_connection_error_msg(),

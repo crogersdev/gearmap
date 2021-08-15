@@ -33,6 +33,7 @@ class ControlPanel extends Component {
     }
 
     handleNewObservation = (event) => {
+        console.log('fooooooo mannstein');
         
     }
 
