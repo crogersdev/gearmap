@@ -27,7 +27,6 @@ async def test_put_school_observation(db_session, gearmap_impl):
 
 @pytest.mark.asyncio
 async def test_get_all_observations_in_polygon(db_session, gearmap_impl):
-
     gi = gearmap_impl
 
     from test_utils import polygons

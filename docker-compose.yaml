@@ -4,6 +4,8 @@ services:
     build:
       context: ./client
       dockerfile: ./devops/src/docker/Dockerfile
+    volumes:
+    - ./client:/app
     ports:
     - "3001:3000"
   server:
@@ -19,9 +21,11 @@ services:
     - ./server/devops:/gearmap/devops
     - ./server/src:/gearmap/src
   db:
-    image: mdillon/postgis:10-alpine
+    image: postgis/postgis:11-2.5-alpine
     volumes:
     - /data/gearmap_db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${GEARMAP_DBPASS:-postgres}
     ports:
     - 5431:5432
        

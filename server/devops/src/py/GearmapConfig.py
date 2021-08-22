@@ -15,12 +15,12 @@ class GearmapConfig(object):
                                  'observations_test_data_table ')
 
         self.INIT_DEV_DBCONFIG = self.db_cfg(
-            dbhost=environ.get('GEARMAP_DBHOST', 'localhost'),
-            dbport='5432',
-            dbname='postgres',
-            dbpasswd=environ.get('PGPASSWORD', 'postgres'),
-            dbuser='postgres',
-            dbschema='gearmap',
+            dbhost=environ.get('GEARMAP_DBHOST', 'db'),
+            dbport=environ.get('GEARMAP_DBPORT', '5432'),
+            dbname=environ.get('GEARMAP_DBNAME', 'postgres'),
+            dbpasswd=environ.get('GEARMAP_DBPASS', 'postgres'),
+            dbuser=environ.get('GEARMAP_DBUSER', 'postgres'),
+            dbschema=environ.get('GEARMAP_DBSCHEMA', 'gearmap'),
             conference_table='conferences',
             school_table='schools',
             observations_test_data_table='observations_test_data',
@@ -28,12 +28,12 @@ class GearmapConfig(object):
         )
 
         self.DEV_DBCONFIG = self.db_cfg(
-            dbhost=environ.get('GEARMAP_DBHOST', 'localhost'),
-            dbport='5432',
-            dbname='gearmap',
-            dbpasswd=environ.get('PGPASSWORD', 'postgres'),
-            dbuser='postgres',
-            dbschema='gearmap',
+            dbhost=environ.get('GEARMAP_DBHOST', 'db'),
+            dbport=environ.get('GEARMAP_DBPORT', '5432'),
+            dbname=environ.get('GEARMAP_DBNAME', 'postgres'),
+            dbpasswd=environ.get('GEARMAP_DBPASS', 'postgres'),
+            dbuser=environ.get('GEARMAP_DBUSER', 'postgres'),
+            dbschema=environ.get('GEARMAP_DBSCHEMA', 'gearmap'),
             conference_table='conferences',
             school_table='schools',
             observations_test_data_table='observations_test_data',
