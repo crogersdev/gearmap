@@ -16,10 +16,17 @@ from aiohttp import web
 from api.api_v1 import create_gearmap_app
 from api.GearmapImpl import GearmapImpl
 from GearmapConfig import GearmapConfig
+from GearmapDbBase import create_all
+from GearmapDbSession import GearmapDbSession
 from utils.logger import logger
 
 
 WEBAPP_CFG = GearmapConfig()
+
+loop = asyncio.get_event_loop()
+db_session = GearmapDbSession(env='dev')
+task = loop.create_task(create_all(db_session))
+loop.run_until_complete(task)
 
 app = create_gearmap_app(loop=asyncio.get_event_loop())
 app['GearmapImpl'] = GearmapImpl()

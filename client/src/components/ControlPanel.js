@@ -13,7 +13,7 @@ class ControlPanel extends Component {
         super(props);
         this.state = { searchValue: 'Search...',
                        mapInfo: props.mapInfo };
-    
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleNewObservation = this.handleNewObservation.bind(this);
@@ -26,15 +26,16 @@ class ControlPanel extends Component {
             searchValue: event.target.value
         });
     }
-    
+
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.applyFilters(this.state);
     }
 
     handleNewObservation = (event) => {
-        console.log('fooooooo mannstein');
+        console.log('new observation');
         
+
     }
 
     shouldComponentUpdate(nextProps, nextState) {

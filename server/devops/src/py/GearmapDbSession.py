@@ -10,6 +10,7 @@ why   : wrapper and getter for sql alchemy ORM db session
 
 # python modules
 from functools import wraps
+import os
 
 # 3rd party modules
 from sqlalchemy import create_engine
