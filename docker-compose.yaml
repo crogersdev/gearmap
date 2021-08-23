@@ -17,7 +17,7 @@ services:
       context: ./server
       dockerfile: ./devops/src/docker/api_dockerfile
     ports:
-    - "5001:5000"
+    - "5001:5001"
     volumes:
     - ./server/common:/gearmap/common
     - ./server/devops:/gearmap/devops
