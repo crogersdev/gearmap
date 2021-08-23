@@ -109,4 +109,4 @@ class GearmapConfig(object):
             'port'
         )
 
-        self.DEV_WEBAPPCONFIG = self.webapp_cfg(port=5001)
+        self.DEV_WEBAPPCONFIG = self.webapp_cfg(port=environ.get('DEV_GEARMAP_API_PORT', 5001))
