@@ -1,17 +1,19 @@
 
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import MapContext from './components/MapContext';
 
 import * as open_layers from 'ol';
 import * as ol_source from "ol/source";
 
-import OLTileLayer from "ol/layer/Tile";
-import OLVectorLayer from "ol/layer/Vector";
 import GeoJSON from "ol/format/GeoJSON";
 
+import TileLayer from './components/layers/TileLayer';
+import VectorLayer from './components/layers/VectorLayer';
+
 import { fromLonLat, get } from 'ol/proj';
-import { Circle as CircleStyle, Fill, Stroke, Style } from "ol/style";
 import { Vector as VectorSource } from 'ol/source';
+
+import featureStyles from './components/features';
 
 import './App.css';
 
@@ -22,37 +24,6 @@ function vector({ features }) {
 }
 
 const osm = () => (new ol_source.OSM());
-
-const featureStyles =   {
-    Point: new Style({
-    image: new CircleStyle({
-      radius: 10,
-      fill: null,
-      stroke: new Stroke({
-        color: "magenta",
-      }),
-    }),
-  }),
-  Polygon: new Style({
-    stroke: new Stroke({
-      color: "blue",
-      lineDash: [4],
-      width: 3,
-    }),
-    fill: new Fill({
-      color: "rgba(0, 0, 255, 0.1)",
-    }),
-  }),
-  MultiPolygon: new Style({
-    stroke: new Stroke({
-      color: "blue",
-      width: 1,
-    }),
-    fill: new Fill({
-      color: "rgba(0, 0, 255, 0.1)",
-    }),
-  }),
-}
 
 const geoJsonObject = {
     "type": "FeatureCollection",
@@ -86,52 +57,6 @@ const geoJsonObject = {
         }
     ]
 }
-
-const TileLayer = ({ source, zIndex = 0 }) => {
-    const { map } = useContext(MapContext);
-    useEffect(() => {
-        if (!map) return;
-
-        let tileLayer = new OLTileLayer({
-            source,
-            zIndex
-        });
-        map.addLayer(tileLayer);
-        tileLayer.setZIndex(zIndex);
-
-    
-        return () => {
-            if (map) {
-                map.removeLayer(tileLayer);
-            }
-        };
-    }, [map]);
-
-    return null;
-};
-
-const VectorLayer = ({source, style, zIndex = 0}) => {
-    const { map } = useContext(MapContext);
-
-    useEffect(() => {
-        if (!map) return;
-
-        let vectorLayer = new OLVectorLayer({
-            source,
-            style
-        });
-
-        map.addLayer(vectorLayer);
-        vectorLayer.setZIndex(zIndex);
-
-        return () => {
-            if (map) map.removeLayer(vectorLayer);
-        };
-    }, [map]);
-
-    return null;
-
-};
 
 const Map = ({ children, zoom, center }) => {
     const mapRef = useRef();
