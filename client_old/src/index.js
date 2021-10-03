@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import GearMApp from './GearMApp.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GearMApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
