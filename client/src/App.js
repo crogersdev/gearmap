@@ -1,14 +1,13 @@
 
-import React, { useRef, useState, useEffect } from 'react';
-import MapContext from './components/MapContext';
+import React, { useState } from 'react';
 
-import * as open_layers from 'ol';
 import * as ol_source from "ol/source";
 
 import GeoJSON from "ol/format/GeoJSON";
 
 import TileLayer from './components/layers/TileLayer';
 import VectorLayer from './components/layers/VectorLayer';
+import Map from './components/map/Map.js';
 
 import { fromLonLat, get } from 'ol/proj';
 import { Vector as VectorSource } from 'ol/source';
@@ -17,7 +16,7 @@ import featureStyles from './components/features';
 
 import './App.css';
 
-function vector({ features }) {
+const vector = ({ features }) => {
 	return new VectorSource({
 		features
 	});
@@ -58,55 +57,13 @@ const geoJsonObject = {
     ]
 }
 
-const Map = ({ children, zoom, center }) => {
-    const mapRef = useRef();
-
-    const [map, setMap] = useState(null);
-
-    //on component mount
-    useEffect(() => {
-        let options = {
-            view: new open_layers.View({ zoom, center }),
-            layers: [],
-            controls: [],
-            overlays: []
-        };
-
-        let mapObject = new open_layers.Map(options);
-        mapObject.setTarget(mapRef.current);
-        setMap(mapObject);
-
-        return () => mapObject.setTarget(undefined);
-    }, []);
-
-    useEffect((map) => {
-        if (!map) return;
-
-        map.getView().setZoom(zoom);
-    }, [zoom])
-
-    useEffect((map) => {
-        if (!map) return;
-
-        map.getview().setCenter(center);
-    }, [center])
-
-    return (
-        <MapContext.Provider value={{ map }}>
-            <div ref={mapRef} className="ol-map">
-                { children }
-            </div>
-        </MapContext.Provider>
-    )
-}
-
 const App = () => {
 
     const [center, setCenter] = useState([-94.9065, 38.9884]);
     const [zoom, setZoom] = useState(9);
 
     return (
-        <div>
+        <div style={{ height: '100vh', backgroundColor: 'red' }}>
             <Map center={fromLonLat(center)} zoom={zoom}>
                 <TileLayer source={osm()} zIndex={0} />
                 <VectorLayer
