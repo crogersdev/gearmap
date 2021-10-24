@@ -1,16 +1,12 @@
-
 import React, { useState } from 'react';
 
-import * as ol_source from "ol/source";
-
 import GeoJSON from "ol/format/GeoJSON";
+import { OSM, Vector as VectorSource } from 'ol/source';
+import { fromLonLat, get } from 'ol/proj';
 
+import Map from './components/map/Map.js';
 import TileLayer from './components/layers/TileLayer';
 import VectorLayer from './components/layers/VectorLayer';
-import Map from './components/map/Map.js';
-
-import { fromLonLat, get } from 'ol/proj';
-import { Vector as VectorSource } from 'ol/source';
 
 import featureStyles from './components/features';
 
@@ -22,37 +18,37 @@ const vector = ({ features }) => {
 	});
 }
 
-const osm = () => (new ol_source.OSM());
+const osm = () => (new OSM());
 
 const geoJsonObject = {
     "type": "FeatureCollection",
     "features": [
-    {
-        "type": "Feature",
-        "properties": {
-            "kind": "county",
-            "name": "Wyandotte",
-            "state": "KS"
-        },
-        "geometry": {
-            "type": "MultiPolygon",
-            "coordinates": [
-            [
-                [
-                [-94.8627, 39.202],
-                [-94.901, 39.202],
-                [-94.9065, 38.9884],
-                [-94.8682, 39.0596],
-                [-94.6053, 39.0432],
-                [-94.6053, 39.1144],
-                [-94.5998, 39.1582],
-                [-94.7422, 39.1691],
-                [-94.7751, 39.202],
-                [-94.8627, 39.202]
+        {
+            "type": "Feature",
+            "properties": {
+                "kind": "county",
+                "name": "Wyandotte",
+                "state": "KS"
+            },
+            "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                    [
+                        [
+                        [-94.8627, 39.202],
+                        [-94.901, 39.202],
+                        [-94.9065, 38.9884],
+                        [-94.8682, 39.0596],
+                        [-94.6053, 39.0432],
+                        [-94.6053, 39.1144],
+                        [-94.5998, 39.1582],
+                        [-94.7422, 39.1691],
+                        [-94.7751, 39.202],
+                        [-94.8627, 39.202]
+                        ]
+                    ]
                 ]
-            ]
-            ]
-        }
+            }
         }
     ]
 }
