@@ -15,7 +15,7 @@ services:
     - db
     build:
       context: ./server
-      dockerfile: ./devops/src/docker/api_dockerfile
+      dockerfile: ./devops/src/docker/Dockerfile
     ports:
     - "5001:5001"
     volumes:
