@@ -25,8 +25,6 @@ WEBAPP_CFG = GearmapConfig()
 
 loop = asyncio.get_event_loop()
 db_session = GearmapDbSession(env='dev')
-task = loop.create_task(create_all(db_session))
-loop.run_until_complete(task)
 
 app = create_gearmap_app(loop=asyncio.get_event_loop())
 app['GearmapImpl'] = GearmapImpl()

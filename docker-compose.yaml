@@ -8,14 +8,19 @@ services:
     - ./client:/app
     ports:
     - "3001:3000"
-    volumes:
-    - ./client:/app
   server:
     depends_on:
     - db
     build:
       context: ./server
       dockerfile: ./devops/src/docker/Dockerfile
+    environment:
+      - GEARMAP_DBHOST=${GEARMAP_DBHOST:-db}
+      - GEARMAP_DBPORT=${GEARMAP_DBPORT:-5432}
+      - GEARMAP_DBNAME=${GEARMAP_DBNAME:-postgres}
+      - GEARMAP_DBPASS=${GEARMAP_DBPASS:-postgres}
+      - GEARMAP_DBUSER=${GEARMAP_DBUSER:-postgres}
+      - GEARMAP_DBSCHEMA=${GEARMAP_DBSCHEMA:-gearmap}
     ports:
     - "5001:5001"
     volumes:
@@ -25,7 +30,7 @@ services:
   db:
     image: postgis/postgis:11-2.5-alpine
     volumes:
-    - /data/gearmap_db:/var/lib/postgresql/data
+    - ./gearmap_db:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=${GEARMAP_DBPASS:-postgres}
     ports:

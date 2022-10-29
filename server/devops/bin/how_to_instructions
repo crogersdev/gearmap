@@ -3,18 +3,21 @@
 make sure there is a /data folder
 make sure there is a /gearmap folder
 make sure there is a /data/gearmap_db folder
+make sure there is a /gearmap/logs folder
 chmod 755 /data/gearmap_db
-create conda env; conda create -n gearmap_api && conda install --file devops/conda_env.yaml
-create the gearmap_api_db container:
-    python3 /gearmap/devops/src/db_setup/create_dev_db_container.py
+create conda env:
+    conda env create -f ./server/devops/conda_env.yml
 create db items; tables, etc...:
     conda activate gearmap_api
     export PYTHONPATH=$PYTHONPATH:/gearmap/server/devops/src/py:/gearmap/server/devops/src/db_setup:/gearmap/server/src/py/api:/gearmap/server/src/py/:/gearmap/server/src/tests:/gearmap/server/common/src/py
-    python3 /gearmap/devops/src/py/GearmapDbBase.py
-    python3 /gearmap/devops/src/db_setup/put_conferences_in_db.py
-    python3 /gearmap/devops/src/db_setup/put_schools_in_db.py
+create the gearmap_api_db container:
+    python3 /gearmap/server/devops/src/db_setup/create_dev_db_container.py
+create db items; tables, etc...:
+    python3 /gearmap/server/devops/src/py/GearmapDbBase.py
+    python3 /gearmap/server/devops/src/db_setup/put_conferences_in_db.py
+    python3 /gearmap/server/devops/src/db_setup/put_schools_in_db.py
 put fake data in there (optional):
-    python3 /gearmap/src/tests/populate_db_with_random_observations.py
+    python3 /gearmap/server/src/tests/populate_db_with_random_observations.py
 
 ## running dev servers
 # make sure docker daemon is running and then 

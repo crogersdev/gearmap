@@ -20,7 +20,7 @@ log_file = cfg.app_logger_path + '/' + cfg.app_log_filename
 logFormatter = logging.Formatter("%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s")
 rootLogger = logging.getLogger()
 
-fileHandler = logging.FileHandler("{0}/{1}.log".format(cfg.app_logger_path, cfg.app_log_filename))
+fileHandler = logging.FileHandler("{0}/{1}".format(cfg.app_logger_path, cfg.app_log_filename))
 fileHandler.setFormatter(logFormatter)
 rootLogger.addHandler(fileHandler)
 
