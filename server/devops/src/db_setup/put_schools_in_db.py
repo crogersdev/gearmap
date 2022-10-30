@@ -22,7 +22,7 @@ from db_models.Conference import Conference
 from db_models.School import School
 from GearmapConfig import GearmapConfig
 from GearmapDbSession import GearmapDbSession
-from utils import logger
+from utils.logger import logger
 
 
 CFG = GearmapConfig()

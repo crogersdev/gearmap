@@ -19,7 +19,7 @@ from shapely.geometry import Point, Polygon
 from db_models.Conference import Conference
 from GearmapConfig import GearmapConfig
 from GearmapDbSession import GearmapDbSession
-from utils import logger
+from utils.logger import logger
 
 CFG = GearmapConfig()
 
