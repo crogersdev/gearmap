@@ -16,7 +16,6 @@ export PYTHONPATH="/gearmap/devops/src/py:/gearmap/devops/src/db_setup:/gearmap/
 conda run -n gearmap_api python3 /gearmap/devops/src/py/GearmapDbBase.py
 conda run -n gearmap_api python3 /gearmap/devops/src/db_setup/put_conferences_in_db.py
 conda run -n gearmap_api python3 /gearmap/devops/src/db_setup/put_schools_in_db.py
-conda run -n gearmap_api python3 /gearmap/src/tests/populate_db_with_random_observations.py dev quiet
 
 conda run \
     --no-capture-output \
