@@ -22,6 +22,7 @@ from sqlalchemy import func
 from db_models.School import School
 from db_models.Observation import Observation
 from GearmapDbSession import GearmapDbSession
+from utils.logger import logger
 
 # http://en.wikipedia.org/wiki/Extreme_points_of_the_United_States#Westernmost
 TOP = 49.3457868      # north lat
@@ -116,6 +117,11 @@ if __name__ == '__main__':
 
     session = GearmapDbSession(env=which_env)
     loop = asyncio.get_event_loop()
-    task = loop.create_task(insert_fake_observations(session, quiet=False))
+
+    quiet_arg = False
+    if sys.argv[2] and sys.argv[2] == 'quiet':
+        quiet_arg = True
+
+    task = loop.create_task(insert_fake_observations(session, quiet=quiet_arg))
     loop.run_until_complete(task)
-    print("Done!")
+    logger.info("Done putting 5000 synthetic observations in database!")

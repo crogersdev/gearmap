@@ -22,6 +22,7 @@ from db_models.Conference import Conference
 from db_models.School import School
 from GearmapConfig import GearmapConfig
 from GearmapDbSession import GearmapDbSession
+from utils import logger
 
 
 CFG = GearmapConfig()
@@ -95,4 +96,4 @@ if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     task = loop.create_task(add_schools(session, True))
     loop.run_until_complete(task)
-    print("Done putting schools in database!")
+    logger.info("Done putting schools in database!")
