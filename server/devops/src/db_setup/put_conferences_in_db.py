@@ -64,4 +64,4 @@ if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     task = loop.create_task(add_conferences(session))
     loop.run_until_complete(task)
-    print("Done!")
+    print("Done putting conferences in database!")

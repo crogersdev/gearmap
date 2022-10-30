@@ -16,7 +16,6 @@ from aiohttp import web
 from api.api_v1 import create_gearmap_app
 from api.GearmapImpl import GearmapImpl
 from GearmapConfig import GearmapConfig
-from GearmapDbBase import create_all
 from GearmapDbSession import GearmapDbSession
 from utils.logger import logger
 
