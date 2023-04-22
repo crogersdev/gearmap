@@ -1,78 +1,55 @@
-import React, { useState } from 'react';
-
-import GeoJSON from "ol/format/GeoJSON";
-import { OSM, Vector as VectorSource } from 'ol/source';
-import { fromLonLat, get } from 'ol/proj';
-
-import Map from './components/map/Map.js';
-import TileLayer from './components/layers/TileLayer';
-import VectorLayer from './components/layers/VectorLayer';
-
-import featureStyles from './components/features';
-
 import './App.css';
 
-const vector = ({ features }) => {
-	return new VectorSource({
-		features
-	});
+// react
+import React, { useState, useEffect } from 'react';
+
+// openlayers
+import GeoJSON from 'ol/format/GeoJSON'
+//import Feature from 'ol/Feature';
+
+// components
+import MapWrapper from './components/map/MapWrapper'
+
+function App() {
+
+// set intial state
+const [ features, setFeatures ] = useState([])
+
+// initialization - retrieve GeoJSON features from Mock JSON API get features from mock 
+//  GeoJson API (read from flat .json file in public directory)
+useEffect( () => {
+  fetch('/mock-geojson-api.json')
+    .then(response => response.json())
+    .then(fetchedFeatures => {
+      console.log("this guy got called")
+
+      // parse fetched geojson into OpenLayers features
+      //  use options to convert feature from EPSG:4326 to EPSG:3857
+      const wktOptions = {
+        dataProjection: 'EPSG:4326',
+        featureProjection: 'EPSG:3857'
+      }
+      const parsedFeatures = new GeoJSON().readFeatures(fetchedFeatures, wktOptions)
+
+      // set features into state (which will be passed into OpenLayers
+      //  map component as props)
+      setFeatures(parsedFeatures)
+    })
+  },[]
+)
+
+return (
+  <div className="App">
+    
+    <div className="app-label">
+      <p>React Functional Components with OpenLayers Example</p>
+      <p>Click the map to reveal location coordinate via React State</p>
+    </div>
+    
+    <MapWrapper features={features} />
+
+  </div>
+  )
 }
 
-const osm = () => (new OSM());
-
-const geoJsonObject = {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "kind": "county",
-                "name": "Wyandotte",
-                "state": "KS"
-            },
-            "geometry": {
-                "type": "MultiPolygon",
-                "coordinates": [
-                    [
-                        [
-                        [-94.8627, 39.202],
-                        [-94.901, 39.202],
-                        [-94.9065, 38.9884],
-                        [-94.8682, 39.0596],
-                        [-94.6053, 39.0432],
-                        [-94.6053, 39.1144],
-                        [-94.5998, 39.1582],
-                        [-94.7422, 39.1691],
-                        [-94.7751, 39.202],
-                        [-94.8627, 39.202]
-                        ]
-                    ]
-                ]
-            }
-        }
-    ]
-}
-
-const App = () => {
-
-    const [center, setCenter] = useState([-94.9065, 38.9884]);
-    const [zoom, setZoom] = useState(9);
-
-    return (
-        <div style={{ height: '100vh', backgroundColor: 'red' }}>
-            <Map center={fromLonLat(center)} zoom={zoom}>
-                <TileLayer source={osm()} zIndex={0} />
-                <VectorLayer
-                    source={vector({
-                        features: new GeoJSON().readFeatures(geoJsonObject,
-                            {featureProjection: get("EPSG:3857"),
-                        }),
-                    })} 
-                    style={featureStyles.MultiPolygon}
-                />
-            </Map>
-        </div>
-    )
-}
-
-export default App;
+export default App
