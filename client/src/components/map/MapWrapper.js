@@ -42,18 +42,20 @@ function MapWrapper(props) {
       layers: [
         
         // USGS Topo
+        /*
         new TileLayer({
           source: new XYZ({
             url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
           })
         }),
+        */
 
         // Google Maps Terrain
-        /* new TileLayer({
+        new TileLayer({
           source: new XYZ({
             url: 'http://mt0.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}',
           })
-        }), */
+        }),
 
         initalFeaturesLayer
         
@@ -63,7 +65,7 @@ function MapWrapper(props) {
         center: [0, 0],
         zoom: 2
       }),
-      controls: []
+      //controls: []
     })
 
     // set map onclick handler
