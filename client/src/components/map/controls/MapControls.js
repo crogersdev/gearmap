@@ -1,19 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { FullScreen } from "ol/control";
-import MapContext from "../Map/MapContext";
+import { Zoom } from 'ol/control';
 
-const MapControls = () => {
-    const { map } = useContext(MapContext);
+const zoomControl = new Zoom();
 
-    useEffect(() => {
-        if (!map) return;
-        let fullScreenControl = new FullScreen({});
-        map.controls.push(fullScreenControl);
-        return () => map.controls.remove(fullScreenControl);
-    }, [map]
-  );
-
-  return null;
-};
-
-export default FullScreenControl
+export default zoomControl;
