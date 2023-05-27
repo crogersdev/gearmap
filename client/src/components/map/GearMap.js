@@ -12,19 +12,31 @@ const GearMap = (mapElement, initialFeaturesLayer) => {
         target: mapElement,
         layers: [
         
-        // USGS Topo
         /*
+        // USGS Topo
         new TileLayer({
             source: new XYZ({
             url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',
             })
         }),
+
+        /*
+        google tile layer types
+
+        h = roads only
+        m = standard roadmap
+        p = terrain
+        r = somehow altered roadmap
+        s = satellite only
+        t = terrain only
+        y = hybrid
+
         */
 
         // Google Maps Terrain
         new TileLayer({
             source: new XYZ({
-            url: 'http://mt-1.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}',
+            url: 'http://mt.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}',
             })
         }),
 

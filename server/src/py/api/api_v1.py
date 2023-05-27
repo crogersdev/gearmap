@@ -172,7 +172,16 @@ async def get_observations_by_conference(request):
 
 @routes.post('/new_observation')
 async def process_new_observation(request):
-    body = await request.json()
+    try:
+        body = await request.json()
+    except:
+        return web.json_response(
+            GearmapResponse(
+                status='fail',
+                message='invalid params'
+            ).to_json()
+        )
+
     logger.debug(f"/new_observation endpoint hit with {body}")
 
     for observation in body:

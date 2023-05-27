@@ -26,9 +26,9 @@ class GearmapResponse(object):
 
     """
 
-    def __init__(self, status, data, message=None):
+    def __init__(self, status, data=None, message=None):
         self.status = status
-        self.data = data
+        self.data = data if data else dict()
         self.message = message
 
     @classmethod
