@@ -35,7 +35,7 @@ async def add_schools(
     """Add schools asynchronously"""
     # TRICKY: Path to cfb_teams.csv is relative to who calls it.
     # TODO(me): make this a configurable path or something less brittle
-    with open('/gearmap/devops/src/db_setup/cfb_teams.csv', 'r', newline='\n') as teams_file:
+    with open('/gearmap/server/devops/src/db_setup/cfb_teams.csv', 'r', newline='\n') as teams_file:
         READER = DictReader(teams_file)
         for count, row in enumerate(READER):
             if count == 0:
@@ -54,9 +54,7 @@ async def add_schools(
             conf_search_pattern = "%{}%".format(csv_conf_abbrev)
             conf_search_pattern = conf_search_pattern.replace(' ', '%')
 
-            conf_q = await session.query(
-                Conference
-            )
+            conf_q = await session.query(Conference)
 
             try:
                 conference = conf_q.filter(
@@ -76,6 +74,7 @@ async def add_schools(
                 row['stadium_capacity'] = -1
 
             row['marker'] = row['school'].lower().replace(' ', '_') + '_marker'
+            row['nicknames'] = [row['nicknames']]
 
             # TRICKY: from_json is a classmethod, which is 
             #         a kooky alternate way of doing a ctor

@@ -35,4 +35,3 @@ services:
       - POSTGRES_PASSWORD=${GEARMAP_DBPASS:-postgres}
     ports:
     - 5431:5432
-       

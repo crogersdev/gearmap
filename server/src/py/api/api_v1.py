@@ -67,9 +67,11 @@ async def get_all_observations_in_polygon(request):
     try:
         observations = await GearmapImpl.get_all_observations_in_polygon(polygon=polygon)
     except DbConnectionError:
-        return web.Response(
-            db_connection_error_msg(),
-            content_type='application/json'
+        return web.json_response(
+            GearmapResponse(
+                status='fail',
+                message=db_connection_error_msg()
+            ).to_json()
         )
 
     logger.debug(f"{len(observations['result'])} results returned")
@@ -78,7 +80,6 @@ async def get_all_observations_in_polygon(request):
         return web.json_response(
             GearmapResponse(
                 status='fail',
-                data={},
                 message=observations.get('result', 'No observations results returned')
             ).to_json()
         )
@@ -118,9 +119,10 @@ async def get_observations_by_school(request):
         )
     except DbConnectionError:
         return web.json_response(
-            db_connection_error_msg(),
-            content_type='application/json',
-            status=200
+            GearmapResponse(
+                status='fail',
+                message=db_connection_error_msg(),
+            ).to_json()
         )
 
     logger.debug(f"{len(observations['result'])} results returned")
@@ -152,9 +154,11 @@ async def get_observations_by_conference(request):
             polygon=polygon
         )
     except DbConnectionError:
-        return web.Response(
-            db_connection_error_msg(),
-            content_type='application/json'
+        return web.json_response(
+            GearmapResponse(
+                status='fail',
+                message=db_connection_error_msg(),
+            ).to_json()
         )
 
     logger.debug(f"{len(observations['result'])} results returned")
@@ -166,7 +170,7 @@ async def get_observations_by_conference(request):
                 'data': observations_utils.to_geojson(observations),
                 'num_observations': len(observations['result'])
             }
-        )
+        ).to_json()
     )
 
 
@@ -178,33 +182,51 @@ async def process_new_observation(request):
         return web.json_response(
             GearmapResponse(
                 status='fail',
-                message='invalid params'
+                message='Error retrieving request body'
+            ).to_json()
+        )
+
+    if not body: 
+        return web.json_response(
+            GearmapResponse(
+                status='fail',
+                message='Empty body'
             ).to_json()
         )
 
     logger.debug(f"/new_observation endpoint hit with {body}")
 
-    for observation in body:
-        school_observed = observation.get('school', None)
-        location_long = observation.get('location_long', None)
-        location_lat = observation.get('location_lat', None)
-        school_id = observation.get('school_id', None)
-        if not all([school_observed, location_long, location_lat, school_id]):
-            return web.HTTPBadRequest(
-                text='Unable to parse new observation request, ' +
-                     'missing required field: school_observed, ' +
-                     'location longitude, school_id, or location latitude.'
-            )
+    try:
+        for observation in body:
+            school_observed = observation.get('school', None)
+            location_long = observation.get('location_long', None)
+            location_lat = observation.get('location_lat', None)
+            school_id = observation.get('school_id', None)
+            if not all([school_observed, location_long, location_lat, school_id]):
+                return web.HTTPBadRequest(
+                    text='Unable to parse new observation request, ' +
+                        'missing required field: school, , ' +
+                        'location longitude, school_id, or location latitude.'
+                )
 
-        GearmapImpl = request.app.get('GearmapImpl')
+            GearmapImpl = request.app.get('GearmapImpl')
 
-        try:
-            status = await GearmapImpl.put_school_observation(observation)
-        except DbConnectionError:
-            return web.Response(
-                db_connection_error_msg(),
-                content_type='application/json'
-            )
+            try:
+                status = await GearmapImpl.put_school_observation(observation)
+            except DbConnectionError:
+                return web.json_response(
+                    GearmapResponse(
+                        success='fail',
+                        message=db_connection_error_msg
+                    ).to_json()
+                )
+    except Exception as exc:
+        return web.json_response(
+            GearmapResponse(
+                status='fail',
+                message=f'unable to parse uploaded observation data: {str(exc)}'
+            ).to_json()
+        )
 
     return web.json_response(
         GearmapResponse(
@@ -212,7 +234,7 @@ async def process_new_observation(request):
             data={
                 "status": status
             }
-        )
+        ).to_json()
     )
 
 

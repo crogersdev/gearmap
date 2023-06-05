@@ -37,11 +37,10 @@ function MapWrapper(props) {
       source: new VectorSource()
     })
 
-    console.log("passing in mapelement: ", mapElement);
     const initialMap = GearMap(mapElement.current, initialFeaturesLayer);
 
     // set map onclick handler
-    initialMap.on('click', handleMapClick)
+    initialMap.on('click', handleMapClick);
     initialMap.on('moveend', () => {
       console.log("a view changed");
     })

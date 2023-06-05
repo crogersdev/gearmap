@@ -119,7 +119,7 @@ if __name__ == '__main__':
     loop = asyncio.get_event_loop()
 
     quiet_arg = False
-    if sys.argv[2] and sys.argv[2] == 'quiet':
+    if len(sys.argv) > 3 and sys.argv[2] and sys.argv[2] == 'quiet':
         quiet_arg = True
 
     task = loop.create_task(insert_fake_observations(session, quiet=quiet_arg))

@@ -37,7 +37,7 @@ class School(Base):
     school = Column('school', String)
     canonical_name = Column('canonical_name', String)
     abbreviation = Column('abbreviation', String)
-    nicknames = Column('nicknames', postgresql.ARRAY(String))
+    nicknames = Column('nicknames', postgresql.ARRAY(postgresql.TEXT))
     city = Column('city', String)
     state = Column('state', String)
     conference = Column('conference', String)
