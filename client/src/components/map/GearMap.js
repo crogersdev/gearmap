@@ -6,8 +6,6 @@ import { Zoom } from 'ol/control';
 
 // create map
 const GearMap = (mapElement, initialFeaturesLayer) => {
-    console.log("this is the passed in mapElement: ", mapElement);
-    console.log("here is the init features:", initialFeaturesLayer);
     return new Map({
         target: mapElement,
         layers: [
@@ -45,8 +43,8 @@ const GearMap = (mapElement, initialFeaturesLayer) => {
         ],
         view: new View({
             projection: 'EPSG:3857',
-            center: [-1, 0],
-            zoom: 1
+            center: [37.9005, 122.6444],
+            zoom: 5
         }),
         controls: [
             new Zoom(),

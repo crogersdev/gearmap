@@ -17,10 +17,15 @@ const [ features, setFeatures ] = useState([])
 // initialization - retrieve GeoJSON features from Mock JSON API get features from mock 
 //  GeoJson API (read from flat .json file in public directory)
 useEffect( () => {
-  fetch('/mock-geojson-api.json')
+  fetch('http://server:5001/observations', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(!!!MUST GET BBOX FROM MAPWRAPPER AND GEARMAP!!!)
+  })
     .then(response => response.json())
     .then(fetchedFeatures => {
       console.log("this guy got called")
+      console.log(fetchedFeatures)
 
       // parse fetched geojson into OpenLayers features
       //  use options to convert feature from EPSG:4326 to EPSG:3857
