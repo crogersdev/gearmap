@@ -5,4 +5,5 @@ logs/
 *pyc
 
 .env
+.gearmap
 gearmap_db/

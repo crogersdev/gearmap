@@ -18,9 +18,9 @@ const [ features, setFeatures ] = useState([])
 //  GeoJson API (read from flat .json file in public directory)
 useEffect( () => {
   fetch('http://server:5001/observations', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(!!!MUST GET BBOX FROM MAPWRAPPER AND GEARMAP!!!)
+    method: 'GET',
+    //headers: { 'Content-Type': 'application/json' },
+    //body: JSON.stringify(!!!MUST GET BBOX FROM MAPWRAPPER AND GEARMAP!!!)
   })
     .then(response => response.json())
     .then(fetchedFeatures => {

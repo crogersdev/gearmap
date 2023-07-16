@@ -13,11 +13,10 @@ done
 
 export PYTHONPATH="/gearmap/devops/src/py:/gearmap/devops/src/db_setup:/gearmap/src/py:/gearmap/server/src/tests:/gearmap/common/src/py"
 
-conda run -n gearmap_api python3 /gearmap/devops/src/py/GearmapDbBase.py
-conda run -n gearmap_api python3 /gearmap/devops/src/db_setup/put_conferences_in_db.py
-conda run -n gearmap_api python3 /gearmap/devops/src/db_setup/put_schools_in_db.py
+sleep 3600
 
-conda run \
-    --no-capture-output \
-    -n gearmap_api \
-    python3 ./src/py/api/app.py
+python3 /gearmap/devops/src/py/GearmapDbBase.py
+python3 /gearmap/devops/src/db_setup/put_conferences_in_db.py
+python3 /gearmap/devops/src/db_setup/put_schools_in_db.py
+
+python3 ./src/py/api/app.py
