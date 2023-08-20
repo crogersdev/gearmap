@@ -17,4 +17,4 @@ RUN pip install -r /gearmap/devops/requirements.txt
 
 # EXPOSE 5001
 
-# ENTRYPOINT ["bash", "+x", "./devops/src/docker/entrypoint.sh"]
+ENTRYPOINT ["bash", "+x", "./devops/src/docker/entrypoint.sh"]
