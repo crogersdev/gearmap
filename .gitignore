@@ -4,6 +4,7 @@ node_modules/
 logs/
 *pyc
 
+*venv*
 .env
 .gearmap
 gearmap_db/
