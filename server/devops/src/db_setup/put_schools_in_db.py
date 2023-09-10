@@ -35,7 +35,7 @@ async def add_schools(
     """Add schools asynchronously"""
     # TRICKY: Path to cfb_teams.csv is relative to who calls it.
     # TODO(me): make this a configurable path or something less brittle
-    with open('/gearmap/server/devops/src/db_setup/cfb_teams.csv', 'r', newline='\n') as teams_file:
+    with open('/gearmap/devops/src/db_setup/cfb_teams.csv', 'r', newline='\n') as teams_file:
         READER = DictReader(teams_file)
         for count, row in enumerate(READER):
             if count == 0:

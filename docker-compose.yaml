@@ -14,13 +14,8 @@ services:
     build:
       context: ./server
       dockerfile: ./devops/src/docker/Dockerfile
-    environment:
-      - GEARMAP_DBHOST=${GEARMAP_DBHOST:-db}
-      - GEARMAP_DBPORT=${GEARMAP_DBPORT:-5432}
-      - GEARMAP_DBNAME=${GEARMAP_DBNAME:-postgres}
-      - GEARMAP_DBPASS=${GEARMAP_DBPASS:-postgres}
-      - GEARMAP_DBUSER=${GEARMAP_DBUSER:-postgres}
-      - GEARMAP_DBSCHEMA=${GEARMAP_DBSCHEMA:-gearmap}
+    env_file:
+      - server.dev.env
     ports:
     - "5001:5001"
     volumes:

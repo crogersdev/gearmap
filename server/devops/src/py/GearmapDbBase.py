@@ -51,6 +51,12 @@ async def create_all(db_session, quiet=False):
         except ProgrammingError:
             resp_list = []
             pass  # TRICKY: if we fail to get Postgis, then just create it.
+        except BaseException as be:
+            if "PostGIS_full_version()" in str(be):
+                resp_list = []
+                pass
+            else:
+                raise be
 
         if not any([True if 'POSTGIS=' in str(x) else False for x in resp_list]):
             if not quiet:

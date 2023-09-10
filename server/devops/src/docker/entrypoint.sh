@@ -13,10 +13,8 @@ done
 
 export PYTHONPATH="/gearmap/devops/src/py:/gearmap/devops/src/db_setup:/gearmap/src/py:/gearmap/server/src/tests:/gearmap/common/src/py"
 
-sleep 3600
-
 python3 /gearmap/devops/src/py/GearmapDbBase.py
 python3 /gearmap/devops/src/db_setup/put_conferences_in_db.py
 python3 /gearmap/devops/src/db_setup/put_schools_in_db.py
 
-python3 ./src/py/api/app.py
+python3 /gearmap/src/py/api/app.py

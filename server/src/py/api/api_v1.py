@@ -237,9 +237,8 @@ async def process_new_observation(request):
         ).to_json()
     )
 
-
-def create_gearmap_app(loop):
-    gearmap_app = web.Application(loop=loop)
+def create_gearmap_app():
+    gearmap_app = web.Application()
 
     # TRICKY: Please remove me when this is no longer in dev.
     cors = aiohttp_cors.setup(gearmap_app)

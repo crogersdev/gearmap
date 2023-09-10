@@ -3,7 +3,7 @@
 """
 file  : app.py
 author: chris rogers
-why   : starts the app
+why   : starts the app()
 """
 
 # python modules
@@ -19,13 +19,12 @@ from GearmapConfig import GearmapConfig
 from GearmapDbSession import GearmapDbSession
 from utils.logger import logger
 
-
 WEBAPP_CFG = GearmapConfig()
 
 loop = asyncio.get_event_loop()
 db_session = GearmapDbSession(env='dev')
 
-app = create_gearmap_app(loop=asyncio.get_event_loop())
+app = create_gearmap_app()
 app['GearmapImpl'] = GearmapImpl()
 
 logger.info("Running web app")

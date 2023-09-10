@@ -14,6 +14,7 @@ import os
 
 # 3rd party modules
 from sqlalchemy import create_engine
+from sqlalchemy import text as sqlalchemy_text
 from sqlalchemy.orm import sessionmaker
 
 # gearmap modules
@@ -117,7 +118,7 @@ class GearmapDbSession(object):
 
         with self._db_engine.connect() as conn:
             conn.execution_options(isolation_level="AUTOCOMMIT")
-            result_set = conn.execute(sql)
+            result_set = conn.execute(sqlalchemy_text(sql))
 
         return result_set
 
@@ -141,8 +142,8 @@ class GearmapDbSession(object):
     def create_postgis_extension(self):
         """Create postgis extension for the db engine."""
         with self._db_engine.connect() as conn:
-            conn.execute('CREATE EXTENSION postgis CASCADE;')
-            conn.execute('CREATE EXTENSION postgis_topology CASCADE;')
+            conn.execute(sqlalchemy_text('CREATE EXTENSION postgis CASCADE;'))
+            conn.execute(sqlalchemy_text('CREATE EXTENSION postgis_topology CASCADE;'))
 
     @fails_gracefully
     async def bulk_insert(self, objects):
